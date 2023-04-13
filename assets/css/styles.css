@@ -247,7 +247,6 @@ header {
   padding-top: 1rem;
 }
 
-/*=============== SKILLS ===============*/
 .home__data {
   text-align: center;
   row-gap: 1rem;
@@ -258,7 +257,7 @@ header {
   font-weight: var(--font-semi-bold);
 }
 
-.home__profile {
+.home__img {
   position: relative;
   width: 250px;
   height: 250px;
@@ -352,8 +351,66 @@ header {
   font-weight: var(--font-medium);
 }
 
-/* Animation skills */
+/*=============== SKILLS ===============*/
+.skills__info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 1rem;
+}
 
+.skills__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills__img {
+  display: grid;
+  width: 100px;
+  height: 100px;
+  background-color: var(--container-color);
+  border-radius: 2rem;
+  place-items: center;
+  margin-bottom: 1rem;
+}
+
+.skills__img img {
+  width: 50px;
+}
+
+.skills__name {
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.skills__subtitle {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+}
+
+/* Animation skills */
+.skills__img:hover img{
+  animation: bounce-skills .6s;
+}
+
+@keyframes bounce-skills {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(0, -6px);
+  }
+  40% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(0, -3px);
+  }
+  80% {
+    transform: translate(0);
+  }
+}
 
 /*=============== QUALIFICATION ===============*/
 
