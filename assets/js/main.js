@@ -28,12 +28,6 @@ const linkAction = () => {
 
 navLink.forEach(link => link.addEventListener("click", linkAction))
 
-/*=============== SWIPER PROJECTS ===============*/
-
-
-/*=============== SWIPER TESTIMONIAL ===============*/
-
-
 /*=============== EMAIL JS ===============*/
 
 
