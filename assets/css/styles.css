@@ -413,7 +413,41 @@ header {
 }
 
 /*=============== QUALIFICATION ===============*/
+.qualification {
+  position: relative;
+}
 
+.qualification__name {
+  font-size: var(--normal-font-size);
+  margin-bottom: 1rem;
+}
+
+.qualification__country,
+.qualification__year {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-bottom: .5rem;
+}
+
+.qualification__shape-circle-left {
+  border-radius: 20%;
+  transform: rotate(30deg);
+  width: 80px;
+  position: absolute;
+  top: 2em;
+  left: -1rem;
+  opacity: .5;
+}
+
+.qualification__shape-circle-right {
+  border-radius: 20%;
+  transform: rotate(15deg);
+  width: 150px;
+  position: absolute;
+  bottom: 4em;
+  right: -2rem;
+  opacity: .5;
+}
 
 /*=============== SERVICES ===============*/
 
