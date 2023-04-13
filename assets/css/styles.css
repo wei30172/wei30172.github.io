@@ -121,7 +121,7 @@ body.dark-theme {
 }
 
 .section__border {
-  border-bottom: 1px solid var(--title-color);
+  border-bottom: 1px solid var(--text-color-light);
   padding-bottom: 3.5rem;
 }
 
@@ -295,6 +295,7 @@ header {
   width: 300px;
   left: 0;
   bottom: -3rem;
+  pointer-events: none;
 }
 
 .home__shape-circle-right {
@@ -329,6 +330,7 @@ header {
 
 .home__social-link:hover {
   color:  var(--title-color);
+  cursor: pointer;
 }
 
 .home__info {
