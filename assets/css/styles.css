@@ -202,7 +202,7 @@ header {
 }
 
 .nav__list {
-  grid-template-columns: repeat(3, max-content);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   gap: 2rem;
 }
@@ -516,24 +516,64 @@ header {
   z-index: -1;
 }
 
-/*=============== CONTACT ===============*/
-
-
-/* Status color */
-
-
 /*=============== FOOTER ===============*/
+.footer__container {
+  padding: 3rem 0 10rem;
+  text-align: center;
+}
 
+.footer__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1rem;
+}
 
-/*=============== SCROLL BAR ===============*/
+.footer__subtitle {
+  color: var(--text-color-light);
+}
 
+.footer__lists,
+.footer__list, 
+.footer__social {
+  display: flex;
+  justify-content: center;
+}
 
-/*=============== SCROLL UP ===============*/
+.footer__lists {
+  margin-top: 1rem;
+}
 
+.footer__list,
+.footer__social {
+  flex-direction: column;
+  width: 200px;
+  row-gap: 1rem;
+}
 
-/* Show Scroll Up*/
+.footer__link {
+  color: var(--title-color);
+}
 
+.footer__link:hover {
+  text-decoration: underline;
+}
 
+.footer__social-link {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  transition: transform .3s;
+}
+
+.footer__social-link:hover {
+  transform: translateY(-.2rem);
+}
+
+.footer__copy {
+  display: block;
+  margin-top: 5rem;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 

@@ -28,20 +28,7 @@ const linkAction = () => {
 
 navLink.forEach(link => link.addEventListener("click", linkAction))
 
-/*=============== EMAIL JS ===============*/
-
-
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-
-
-/*=============== SHOW SCROLL UP ===============*/ 
-
-
 /*=============== DARK LIGHT THEME ===============*/ 
 
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
-
-
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-
