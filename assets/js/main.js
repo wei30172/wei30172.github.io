@@ -57,11 +57,30 @@ if (selectedTheme) {
 themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme)
   themeButton.classList.toggle(iconTheme)
-  localStorage.setItem("selected-theme", getCurrentTheme)
-  localStorage.setItem("selected-icon", getCurrentIcon)
+  localStorage.setItem("selected-theme", getCurrentTheme())
+  localStorage.setItem("selected-icon", getCurrentIcon())
 })
-/*=============== CHANGE BACKGROUND HEADER ===============*/
 
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+const scrollHeader = () => {
+  const header = document.getElementById("header")
+  this.scrollY >= 50 ? header.classList.add("bg-header")
+                     : header.classList.remove("bg-header")
+}
+
+window.addEventListener("scroll", scrollHeader)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "60px",
+  duration: 2000,
+  delay: 200
+})
 
+sr.reveal(`.home__data`)
+sr.reveal(`.home__info div`, { delay: 300, origin: "bottom", interval: 100 })
+sr.reveal(`.skills__info`, { origin: "left" })
+sr.reveal(`.qualification__info`, { interval: 100 })
+sr.reveal(`.projects__content`, { origin: "right", interval: 100 })
+sr.reveal(`.footer__container`, { origin: "bottom" })
