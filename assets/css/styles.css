@@ -486,6 +486,10 @@ header {
   margin: .5rem 0 1.25rem;
 }
 
+.projects__image:hover {
+  cursor: pointer;
+}
+
 .projects__subtitle {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
