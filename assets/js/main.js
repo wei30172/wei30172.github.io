@@ -7,14 +7,18 @@ const navMenu = document.getElementById("nav-menu"),
 // MENU SHOW
 if (navToggle) {
   navToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu")
+    window.requestAnimationFrame(() => {
+      navMenu.classList.add("show-menu")
+    })
   })
 }
 
 // MENU CLOSE
 if (navClose) {
   navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu")
+    window.requestAnimationFrame(() => {
+      navMenu.classList.remove("show-menu")
+    })
   })
 }
 
@@ -23,19 +27,44 @@ const navLink = document.querySelectorAll(".nav__link")
 
 const linkAction = () => {
   const navMenu = document.getElementById("nav-menu")
-  navMenu.classList.remove("show-menu")
+  setTimeout(() => {
+    navMenu.classList.remove("show-menu")
+  }, 100)
 }
 
 navLink.forEach(link => link.addEventListener("click", linkAction))
 
-/*=============== SHOW SCROLL UP ===============*/ 
-const scrollUp = () => {
-  const scrollUp = document.getElementById("scroll-up")
-  this.scrollY >= 350 ? scrollUp.classList.add("show-scroll")
-                      : scrollUp.classList.remove("show-scroll")
+/*=============== SCROLL EVENTS ===============*/
+let isScrolling = false;
+
+const handleScroll = () => {
+  if (!isScrolling) {
+    window.requestAnimationFrame(() => {
+      const scrollY = window.pageYOffset;
+
+      // SHOW SCROLL UP
+      const scrollUp = document.getElementById("scroll-up")
+      if (scrollUp) {
+        scrollY >= 350 ? scrollUp.classList.add("show-scroll")
+                        : scrollUp.classList.remove("show-scroll")
+      }
+
+      // CHANGE BACKGROUND HEADER
+      const header = document.getElementById("header")
+      if (header) {
+        if (scrollY >= 50) {
+          if (!header.classList.contains("bg-header")) header.classList.add("bg-header")
+        } else {
+          if (header.classList.contains("bg-header")) header.classList.remove("bg-header")
+        }
+      }
+      isScrolling = false;
+    })
+    isScrolling = true;
+  }
 }
 
-window.addEventListener("scroll", scrollUp)
+window.addEventListener("scroll", handleScroll, { passive: true });
 
 /*=============== DARK LIGHT THEME ===============*/ 
 const themeButton = document.getElementById("theme-button")
@@ -57,30 +86,47 @@ if (selectedTheme) {
 themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme)
   themeButton.classList.toggle(iconTheme)
+
   localStorage.setItem("selected-theme", getCurrentTheme())
   localStorage.setItem("selected-icon", getCurrentIcon())
 })
-
-/*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () => {
-  const header = document.getElementById("header")
-  this.scrollY >= 50 ? header.classList.add("bg-header")
-                     : header.classList.remove("bg-header")
-}
-
-window.addEventListener("scroll", scrollHeader)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
   distance: "60px",
-  duration: 2000,
-  delay: 200
+  duration: 2500,
+  delay: 400,
+  easing: "cubic-bezier(0.5, 0, 0, 1)",
 })
 
 sr.reveal(`.home__data`)
-sr.reveal(`.home__info div`, { delay: 300, origin: "bottom", interval: 100 })
-sr.reveal(`.skills__info`, { origin: "left" })
-sr.reveal(`.qualification__info`, { interval: 100 })
-sr.reveal(`.projects__content`, { origin: "right", interval: 100 })
-sr.reveal(`.footer__container`, { origin: "bottom" })
+
+sr.reveal(`.home__info div`, { 
+    delay: 300, 
+    origin: "bottom", 
+    interval: 150, 
+    scale: 0.95 
+})
+
+sr.reveal(`.skills__info`, { 
+    delay: 300,
+    origin: "left"
+})
+
+sr.reveal(`.qualification__info`, { 
+    delay: 300,
+    origin: "bottom",
+    interval: 200, 
+    distance: "40px"
+})
+
+sr.reveal(`.projects__content`, { 
+    delay: 300,
+    origin: "right", 
+    interval: 200,
+})
+
+sr.reveal(`.footer__container`, { 
+    origin: "bottom" 
+})
